@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Listas — Compras & Afazeres</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Listas</span>
+    </div>
+    <div class="actions">
+      <button id="newListBtn" class="btn btn-accent" title="Criar nova lista">+ Nova lista</button>
+      <button id="exportBtn" class="btn btn-ghost" title="Exportar dados (backup)">Exportar</button>
+      <button id="importBtn" class="btn btn-ghost" title="Importar dados (restaurar)">Importar</button>
+    </div>
+  </header>
+
+  <aside>
+    <div class="sidebar-head">
+      <strong>Suas listas</strong>
+      <span class="pill" id="totalLists">0 listas</span>
+    </div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Filtrar listas..." aria-label="Filtrar listas">
+    </div>
+    <div id="lists" class="lists" role="listbox" aria-label="Listas"></div>
+  </aside>
+
+  <main>
+    <div class="main-head">
+      <div class="title">
+        <span>📁</span>
+        <input id="listTitle" type="text" placeholder="Sem título" aria-label="Renomear lista">
+      </div>
+      <div class="actions">
+        <button id="renameBtn" class="btn btn-ghost" title="Renomear lista">Renomear</button>
+        <button id="deleteListBtn" class="btn btn-danger" title="Excluir lista">Excluir lista</button>
+      </div>
+    </div>
+
+    <div class="quick-add">
+      <input id="itemInput" type="text" placeholder="Adicionar item (Ex: 1kg de arroz / pagar contas)">
+      <button id="addItemBtn" class="btn btn-accent">Adicionar</button>
+      <span class="pill" id="counterPill">0 itens</span>
+    </div>
+
+    <div id="items" class="items" role="list" aria-label="Itens da lista"></div>
+    <div class="empty" id="emptyState" hidden>
+      <p>Crie uma lista para começar.</p>
+      <p>Dica: você pode marcar itens como concluídos, renomear, excluir e tudo fica salvo automaticamente.</p>
+    </div>
+
+    <div class="footer">
+      <div class="filters" role="toolbar" aria-label="Filtros">
+        <button class="btn btn-ghost" data-filter="all" aria-pressed="true">Todos</button>
+        <button class="btn btn-ghost" data-filter="active" aria-pressed="false">A fazer</button>
+        <button class="btn btn-ghost" data-filter="done" aria-pressed="false">Concluídos</button>
+        <button class="btn btn-ghost" id="clearDoneBtn">Limpar concluídos</button>
+      </div>
+      <small class="muted" style="color:var(--muted)">Salvo no seu navegador (localStorage)</small>
+    </div>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
